@@ -15,7 +15,7 @@ defmodule HelloWeb.Router do
 
   pipeline :some_pipe do
     plug HelloWeb.Plugs.SomePlug
-    plug :put_layout, {HelloWeb.LayoutView, :layout}
+    plug :put_layout, {Module.concat(:HelloWeb, :LayoutView), :layout}
   end
 
   scope "/", HelloWeb do
