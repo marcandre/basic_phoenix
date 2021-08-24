@@ -36,4 +36,26 @@ defmodule MyAppWeb.PageLive do
         into: %{},
         do: {app, vsn}
   end
+
+  defmacro example_leex(assigns) do
+    IO.inspect("This will print, at compile time, a string containing 42")
+    IO.inspect(assigns)
+
+    quote do
+      ~L"""
+      <p>Hello</p>
+      """
+    end
+  end
+
+  defmacro example_heex(assigns) do
+    IO.inspect("The goal is to also print here, at compile time, a string containing 42")
+    IO.inspect(assigns)
+
+    quote do
+      ~H"""
+      <p>Hello</p>
+      """
+    end
+  end
 end
