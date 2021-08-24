@@ -42,6 +42,22 @@ defmodule HelloWeb do
     end
   end
 
+  def live_view do
+    quote do
+      use Phoenix.LiveView
+      unquote(view_helpers())
+      import HelloWeb.LiveHelpers
+    end
+  end
+
+  def live_component do
+    quote do
+      use Phoenix.LiveComponent
+      unquote(view_helpers())
+      import HelloWeb.LiveHelpers
+    end
+  end
+
   def router do
     quote do
       use Phoenix.Router
