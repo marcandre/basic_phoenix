@@ -12,12 +12,12 @@ defmodule B do
 
     Benchee.run(
       %{
-        # "maps:put/3 (beam/elixir optimization?)": fn {keys, values} ->
-        #   for key <- keys, do: :maps.put(key, :some_other_value, values)
-        # end,
-        "maps:put/3 (optimized)": fn {keys, values} ->
-          for key <- keys, do: maps.putx(key, :some_other_value, values)
+        "maps:put/3 (beam/elixir optimization?)": fn {keys, values} ->
+          for key <- keys, do: :maps.put(key, :some_other_value, values)
         end,
+        # "maps:put/3 (optimized)": fn {keys, values} ->
+        #   for key <- keys, do: maps.putx(key, :some_other_value, values)
+        # end,
         "maps:put/3 (current)": fn {keys, values} ->
           for key <- keys, do: maps.put(key, :some_other_value, values)
         end,
@@ -33,7 +33,7 @@ defmodule B do
 
   defp inputs do
     for n <- [
-      5,
+      # 5,
       31,
     ],
         {key_lookup, keys} <- try_keys(n),
